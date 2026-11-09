@@ -22,9 +22,6 @@ export default function Hero() {
           <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-wide sm:text-6xl">
             Hamburguesas <span className="text-gordo-yellow">cargadas</span> con flow boyacense
           </h1>
-          <p className="mt-4 text-lg text-white/80">
-            Pan brioche artesanal, carne de res de 150 gr y salsas de la casa. Elige tu sede y pide en minutos.
-          </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-start">
             {SEDES.map((sede) => (
               <a
