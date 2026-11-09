@@ -1,17 +1,16 @@
 import { SEDES } from '../data/site'
 import { pedidoClick } from '../analytics'
+import Doodles from './Doodles'
 
 export default function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden">
-      <img
-        src="/img/hero-bn.webp"
-        alt=""
+    <section id="inicio" className="relative overflow-hidden bg-gordo-black">
+      <Doodles drift className="text-white/[0.14]" />
+      <div
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-40"
-        fetchPriority="high"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(252,183,0,0.30),transparent_55%),radial-gradient(ellipse_at_0%_100%,rgba(252,183,0,0.14),transparent_45%)]"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-gordo-black/40 via-gordo-black/60 to-gordo-black" />
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-gordo-black" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-10 md:grid-cols-2 md:pb-24 md:pt-16">
         <div className="text-center md:text-left">
           <img
@@ -38,6 +37,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="relative mx-auto w-full max-w-md px-2 sm:px-0">
+          <div aria-hidden="true" className="sunburst pointer-events-none absolute -inset-[35%]" />
           <div className="absolute -inset-4 rotate-3 rounded-[2rem] bg-gordo-yellow" />
           <img
             src="/img/productos/la-bichota.webp"

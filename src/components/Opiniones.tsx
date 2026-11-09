@@ -7,7 +7,7 @@ const resenasUrl = (ciudad: string) =>
 
 export default function Opiniones() {
   return (
-    <section id="opiniones" className="border-y border-white/10 bg-gordo-ink">
+    <section id="opiniones" className="border-y border-white/10 bg-gordo-ink/70">
       <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="text-center">
           <h2 className="section-title">Lo que dicen de nosotros</h2>

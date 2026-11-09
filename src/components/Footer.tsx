@@ -1,6 +1,7 @@
 import { Mail, MessageCircle } from 'lucide-react'
 import { CONTACTO, REDES, SEDES } from '../data/site'
 import { trackEvent } from '../analytics'
+import Doodles from './Doodles'
 
 const MENSAJE_PROMOS = 'Hola, quiero recibir las promociones y novedades de Asado del Gordo.'
 
@@ -12,8 +13,9 @@ const REDES_LISTA = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gordo-yellow text-black">
-      <div className="mx-auto max-w-6xl px-4 py-14">
+    <footer className="relative overflow-hidden bg-gordo-yellow text-black">
+      <Doodles className="text-black/[0.08]" />
+      <div className="relative mx-auto max-w-6xl px-4 py-14">
         <div className="rounded-3xl border-2 border-black bg-black p-8 text-white shadow-[6px_6px_0_#000] md:flex md:items-center md:justify-between md:gap-8">
           <div>
             <h2 className="font-display text-4xl leading-none tracking-wide sm:text-5xl">

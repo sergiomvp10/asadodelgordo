@@ -28,3 +28,73 @@
     @apply inline-block -rotate-2 rounded-md bg-gordo-yellow px-3 py-1 font-display text-lg tracking-wider text-black;
   }
 }
+
+.doodles {
+  --tw: 640px;
+  --th: 564px;
+  position: absolute;
+  top: calc(var(--th) * -1);
+  left: calc(var(--tw) * -1);
+  right: 0;
+  bottom: 0;
+  background-color: currentColor;
+  -webkit-mask-image: url('/brand/doodles.svg');
+  mask-image: url('/brand/doodles.svg');
+  -webkit-mask-size: var(--tw) var(--th);
+  mask-size: var(--tw) var(--th);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+}
+@media (min-width: 768px) {
+  .doodles {
+    --tw: 900px;
+    --th: 793px;
+  }
+}
+.doodles-drift {
+  animation: doodle-drift 90s linear infinite;
+}
+@keyframes doodle-drift {
+  to {
+    transform: translate(var(--tw), var(--th));
+  }
+}
+
+.fondo-global {
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(252, 183, 0, 0.08), transparent 40%),
+    radial-gradient(ellipse at 0% 60%, rgba(252, 183, 0, 0.06), transparent 40%);
+}
+
+.sunburst {
+  border-radius: 9999px;
+  background: repeating-conic-gradient(from 0deg, rgba(252, 183, 0, 0.28) 0deg 8deg, transparent 8deg 16deg);
+  -webkit-mask-image: radial-gradient(circle, #000 15%, transparent 68%);
+  mask-image: radial-gradient(circle, #000 15%, transparent 68%);
+  animation: girar 60s linear infinite;
+}
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.marquee {
+  animation: marquee 35s linear infinite;
+}
+.marquee-reverse {
+  animation-direction: reverse;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doodles-drift,
+  .sunburst,
+  .marquee {
+    animation: none;
+  }
+}

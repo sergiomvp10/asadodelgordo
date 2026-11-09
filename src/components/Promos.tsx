@@ -1,11 +1,13 @@
 import { Tag } from 'lucide-react'
 import { PROMOS } from '../data/site'
+import Doodles from './Doodles'
 
 export default function Promos({ onPedir }: { onPedir: (producto: string) => void }) {
   if (PROMOS.length === 0) return null
   return (
-    <section id="promos" className="bg-gordo-yellow text-black">
-      <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <section id="promos" className="relative overflow-hidden bg-gordo-yellow text-black">
+      <Doodles className="text-black/[0.08]" />
+      <div className="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
         <div className="flex flex-col items-center gap-4 text-center md:flex-row md:items-end md:justify-between md:text-left">
           <div>
             <h2 className="section-title">Promos y combos</h2>
