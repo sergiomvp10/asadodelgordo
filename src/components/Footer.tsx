@@ -2,14 +2,16 @@ import { Mail, MessageCircle } from 'lucide-react'
 import { CONTACTO, REDES, SEDES } from '../data/site'
 import { trackEvent } from '../analytics'
 import Doodles from './Doodles'
+import IconoRed, { type RedIcono } from './IconoRed'
 
 const MENSAJE_PROMOS = 'Hola, quiero recibir las promociones y novedades de Asado del Gordo.'
 
-const REDES_LISTA = [
+const REDES_TODAS: { key: RedIcono; label: string; url: string }[] = [
   { key: 'instagram', label: 'Instagram', url: REDES.instagram },
   { key: 'tiktok', label: 'TikTok', url: REDES.tiktok },
-  { key: 'facebook', label: 'Facebook', url: REDES.facebook },
-].filter((r) => r.url)
+  { key: 'whatsapp', label: 'WhatsApp', url: `https://wa.me/${CONTACTO.whatsapp}` },
+]
+const REDES_LISTA = REDES_TODAS.filter((r) => r.url)
 
 export default function Footer() {
   return (
@@ -58,6 +60,15 @@ export default function Footer() {
             <a href={`mailto:${CONTACTO.email}`} className="mt-3 flex items-center gap-2 text-sm hover:underline">
               <Mail className="h-4 w-4" /> {CONTACTO.email}
             </a>
+            <a
+              href={`https://wa.me/${CONTACTO.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent('whatsapp_click', { origen: 'footer' })}
+              className="mt-2 flex items-center gap-2 text-sm hover:underline"
+            >
+              <MessageCircle className="h-4 w-4" /> WhatsApp {CONTACTO.whatsappTexto}
+            </a>
             {REDES_LISTA.length > 0 && (
               <div className="mt-4 flex flex-wrap gap-3">
                 {REDES_LISTA.map((r) => (
@@ -66,10 +77,12 @@ export default function Footer() {
                     href={r.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={r.label}
+                    title={r.label}
                     onClick={() => trackEvent('red_social_click', { red: r.key })}
-                    className="rounded-full border-2 border-black px-4 py-1 font-display text-lg tracking-wide hover:bg-black hover:text-gordo-yellow"
+                    className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white shadow-[3px_3px_0_#fff] ring-2 ring-black transition hover:-translate-y-0.5 hover:bg-white hover:text-black"
                   >
-                    {r.label}
+                    <IconoRed red={r.key} className="h-6 w-6" />
                   </a>
                 ))}
               </div>
