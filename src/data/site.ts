@@ -132,11 +132,13 @@ export interface Opinion {
 export const OPINIONES: Opinion[] = []
 
 export const REDES = {
-  instagram: '',
-  tiktok: '',
+  instagram: 'https://www.instagram.com/asadodelgordo',
+  tiktok: 'https://www.tiktok.com/@asadodelgordo',
   facebook: '',
 }
 
 export const CONTACTO = {
   email: 'elasadodelgordo@gmail.com',
+  whatsapp: '573148370588',
+  whatsappTexto: '314 837 0588',
 }
