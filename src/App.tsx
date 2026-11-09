@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import Cintas from './components/Cintas'
 import Estrella from './components/Estrella'
 import Promos from './components/Promos'
 import Historia from './components/Historia'
@@ -23,9 +24,13 @@ export default function App() {
 
   return (
     <>
+      <div aria-hidden="true" className="fondo-global pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="doodles text-white/[0.07]" />
+      </div>
       <Header onPedir={() => abrirPicker('header')} />
       <main>
         <Hero />
+        <Cintas />
         <Estrella onPedir={(producto) => abrirPicker('producto_estrella', producto)} />
         <Promos onPedir={(producto) => abrirPicker('promo', producto)} />
         <Historia />
