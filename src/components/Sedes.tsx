@@ -1,5 +1,6 @@
-import { Phone } from 'lucide-react'
-import { SEDES } from '../data/site'
+import { Mail, Phone } from 'lucide-react'
+import { CONTACTO, SEDES } from '../data/site'
+import IconoRed from './IconoRed'
 import { pedidoClick, trackEvent } from '../analytics'
 
 export default function Sedes() {
@@ -62,6 +63,35 @@ export default function Sedes() {
             </article>
           )
         })}
+      </div>
+      <div className="mt-14 flex flex-col items-center text-center">
+        <h3 className="font-display text-3xl tracking-wide text-white sm:text-4xl">Contáctanos</h3>
+        <div className="mt-3 flex items-center gap-3">
+          <a
+            href={`tel:+${CONTACTO.whatsapp}`}
+            onClick={() => trackEvent('telefono_click', { sede: 'general' })}
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-white hover:text-gordo-yellow sm:text-base"
+          >
+            <Phone className="h-4 w-4 text-gordo-yellow" /> {CONTACTO.telefono}
+          </a>
+          <a
+            href={`https://wa.me/${CONTACTO.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escríbenos por WhatsApp"
+            title="Escríbenos por WhatsApp"
+            onClick={() => trackEvent('whatsapp_click', { origen: 'contacto' })}
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-gordo-yellow text-black shadow-[2px_2px_0_#000] ring-2 ring-black transition hover:-translate-y-0.5 hover:bg-white"
+          >
+            <IconoRed red="whatsapp" className="h-4 w-4" />
+          </a>
+        </div>
+        <a
+          href={`mailto:${CONTACTO.email}`}
+          className="mt-2 inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-gordo-yellow sm:text-base"
+        >
+          <Mail className="h-4 w-4 text-gordo-yellow" /> {CONTACTO.email}
+        </a>
       </div>
     </section>
   )
