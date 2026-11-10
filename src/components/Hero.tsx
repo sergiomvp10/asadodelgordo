@@ -11,7 +11,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(252,183,0,0.30),transparent_55%),radial-gradient(ellipse_at_0%_100%,rgba(252,183,0,0.14),transparent_45%)]"
       />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-gordo-black" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 pb-16 pt-4 md:gap-10 sm:pt-10 md:grid-cols-2 md:pb-24 md:pt-16">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-16 pt-4 md:gap-10 sm:pt-10 md:grid-cols-2 md:pb-24 md:pt-16">
         <div className="text-center md:text-left">
           <img
             src="/brand/logo-completo.svg"
@@ -21,10 +21,7 @@ export default function Hero() {
           <h1 className="mt-4 font-display sm:mt-6 text-5xl leading-[0.95] tracking-wide sm:text-6xl">
             Hamburguesas <span className="text-gordo-yellow">cargadas</span> con flow boyacense
           </h1>
-          <h2 className="mt-5 font-display text-3xl tracking-wide text-gordo-red drop-shadow-[2px_2px_0_#000] sm:mt-8 sm:text-4xl">
-            Pide en tu sede
-          </h2>
-          <div className="mx-auto mt-2 grid max-w-sm grid-cols-3 gap-2 sm:mt-3 sm:gap-3 md:mx-0">
+          <div className="mx-auto mt-5 grid max-w-sm grid-cols-3 gap-2 sm:mt-8 sm:gap-3 md:mx-0">
             {SEDES.map((sede) => (
               <a
                 key={sede.id}
@@ -53,8 +50,8 @@ export default function Hero() {
           <img
             src="/brand/sello-burger-master-2026.svg"
             alt="Ganador Burger Master 2026"
-            width={940}
-            height={980}
+            width={1004}
+            height={1092}
             className="absolute -left-3 -top-8 z-10 w-[7.5rem] animate-sello drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] sm:-left-10 sm:-top-14 sm:w-40 md:w-[11.5rem]"
           />
           <span className="sticker absolute -bottom-5 left-1/2 -translate-x-1/2 rotate-2 whitespace-nowrap text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black sm:text-3xl">
