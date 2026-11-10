@@ -1,11 +1,3 @@
-import { Beef, Flame, Sandwich } from 'lucide-react'
-
-const DIFERENCIAS = [
-  { icon: Sandwich, titulo: 'Pan brioche artesanal', texto: 'La base de cada hamburguesa: suave, dorado y hecho para aguantar todo lo que le ponemos.' },
-  { icon: Beef, titulo: 'Carne de res 150 gr', texto: 'Jugosa y a la parrilla, con combinaciones llaneras, callejeras y bien boyacenses.' },
-  { icon: Flame, titulo: 'Salsas y toppings de la casa', texto: 'Piña artesanal, aros de cebolla, mezcla crocante y salsas que no encuentras en otro lado.' },
-]
-
 export default function Historia() {
   return (
     <section id="historia" className="relative overflow-hidden">
@@ -18,21 +10,13 @@ export default function Historia() {
             cultura, la música y la moda. Hoy estamos en Tunja, Duitama y Sogamoso, sirviendo platos cargados con el sabor
             que nos hizo conocidos.
           </p>
-          <img src="/brand/flow.svg" alt="Nuestro flow se traduce en platos cargados, sabor adictivo boyacense" className="mt-8 w-full max-w-md" loading="lazy" />
         </div>
-        <div className="grid gap-4">
-          {DIFERENCIAS.map(({ icon: Icon, titulo, texto }) => (
-            <div key={titulo} className="flex gap-4 rounded-3xl border-2 border-white/10 bg-gordo-ink p-5">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gordo-yellow text-black">
-                <Icon className="h-6 w-6" />
-              </span>
-              <div>
-                <h3 className="font-display text-2xl tracking-wide">{titulo}</h3>
-                <p className="text-sm text-white/70">{texto}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <img
+          src="/brand/flow.svg"
+          alt="Nuestro flow se traduce en platos cargados, sabor adictivo boyacense"
+          className="mx-auto w-full max-w-lg"
+          loading="lazy"
+        />
       </div>
     </section>
   )
