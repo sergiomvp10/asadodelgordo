@@ -20,4 +20,4 @@ npm run build    # genera dist/
 
 ## Medición
 
-Los clics se envían como eventos de Google Analytics 4 (`pedido_click` con `sede` y `origen`, `telefono_click`, `como_llegar_click`, `resenas_click`, `red_social_click` con `red`) si el script de GA está instalado en `index.html`.
+Los clics se envían como eventos de Google Analytics 4 (`pedido_click` con `sede` y `origen`, `telefono_click`, `como_llegar_click`, `resenas_click`, `red_social_click` con `red`, `whatsapp_click` con `origen`) si el script de GA está instalado en `index.html`.
