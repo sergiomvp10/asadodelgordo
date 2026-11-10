@@ -95,32 +95,6 @@ export const PRODUCTOS_ESTRELLA: Producto[] = [
   },
 ]
 
-export interface Promo {
-  titulo: string
-  precio: string
-  descripcion: string
-  condiciones: string
-  vigencia: string
-}
-
-// Promociones vigentes: verificar que estén activas en Yuumi antes de publicarlas.
-export const PROMOS: Promo[] = [
-  {
-    titulo: 'La Pecadora 2x1',
-    precio: '2 por $35.000',
-    descripcion: 'Carne de res a la parrilla, queso doble crema fundido, maíz dulce, salsa tártara, salsa de tocineta y la Mezcla Crocante del Gordo.',
-    condiciones: 'Válida en las 3 sedes. El domicilio no está incluido.',
-    vigencia: '',
-  },
-  {
-    titulo: 'Combo Papa y Gaseosa',
-    precio: '$12.000',
-    descripcion: 'El acompañante perfecto para tu hamburguesa: porción de papa a la francesa y gaseosa.',
-    condiciones: 'Válido en las 3 sedes. El domicilio no está incluido.',
-    vigencia: '',
-  },
-]
-
 // Opiniones reales y verificables. Dejar vacío si no hay testimonios con permiso del cliente.
 export interface Opinion {
   nombre: string

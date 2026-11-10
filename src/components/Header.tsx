@@ -2,7 +2,6 @@ import { ShoppingBag } from 'lucide-react'
 
 const LINKS = [
   { href: '#estrella', label: 'Favoritos' },
-  { href: '#promos', label: 'Promos' },
   { href: '#historia', label: 'Nosotros' },
   { href: '#sedes', label: 'Sedes' },
 ]

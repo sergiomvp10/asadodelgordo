@@ -4,7 +4,7 @@ Página web de Asado del Gordo (Tunja, Duitama y Sogamoso). Lleva a los clientes
 
 ## Editar contenido
 
-Todo el contenido editable (sedes, horarios, teléfonos, enlaces de Yuumi, productos estrella, promos, opiniones y redes) está en `src/data/site.ts`.
+Todo el contenido editable (sedes, horarios, teléfonos, enlaces de Yuumi, productos estrella, opiniones y redes) está en `src/data/site.ts`.
 
 - Fotos de productos: `public/img/productos/`
 - Logos e ilustraciones del manual de marca: `public/brand/`

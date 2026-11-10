@@ -82,22 +82,12 @@
 .marquee {
   animation: marquee 35s linear infinite;
 }
-.marquee-reverse {
-  animation-direction: reverse;
-}
 @keyframes marquee {
   to {
     transform: translateX(-50%);
   }
 }
 
-.carrusel {
-  animation: marquee 40s linear infinite;
-}
-.carrusel:hover,
-.carrusel:focus-within {
-  animation-play-state: paused;
-}
 .carrusel-mascara {
   -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
@@ -106,8 +96,7 @@
 @media (prefers-reduced-motion: reduce) {
   .doodles-drift,
   .sunburst,
-  .marquee,
-  .carrusel {
+  .marquee {
     animation: none;
   }
 }

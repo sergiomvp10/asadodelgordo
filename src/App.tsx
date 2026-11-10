@@ -3,7 +3,6 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Cintas from './components/Cintas'
 import Estrella from './components/Estrella'
-import Promos from './components/Promos'
 import Historia from './components/Historia'
 import Opiniones from './components/Opiniones'
 import Sedes from './components/Sedes'
@@ -32,7 +31,6 @@ export default function App() {
         <Hero />
         <Cintas />
         <Estrella onPedir={(producto) => abrirPicker('producto_estrella', producto)} />
-        <Promos onPedir={(producto) => abrirPicker('promo', producto)} />
         <Historia />
         <Opiniones />
         <Sedes />
