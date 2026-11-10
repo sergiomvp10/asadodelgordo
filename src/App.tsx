@@ -8,6 +8,7 @@ import Opiniones from './components/Opiniones'
 import Sedes from './components/Sedes'
 import Footer from './components/Footer'
 import SedePicker from './components/SedePicker'
+import CaritaWhatsapp from './components/CaritaWhatsapp'
 
 interface PickerState {
   open: boolean
@@ -36,6 +37,7 @@ export default function App() {
         <Sedes />
       </main>
       <Footer />
+      <CaritaWhatsapp />
       <SedePicker open={picker.open} origen={picker.origen} producto={picker.producto} onClose={cerrarPicker} />
     </>
   )
