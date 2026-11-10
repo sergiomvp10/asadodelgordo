@@ -1,5 +1,5 @@
-import { CONTACTO, SEDES } from '../data/site'
-import { pedidoClick, trackEvent } from '../analytics'
+import { SEDES } from '../data/site'
+import { pedidoClick } from '../analytics'
 import Doodles from './Doodles'
 
 export default function Hero() {
@@ -49,17 +49,6 @@ export default function Hero() {
           <span className="sticker absolute -bottom-5 left-6 rotate-3 text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black">
             Sabor adictivo
           </span>
-          <a
-            href={`https://wa.me/${CONTACTO.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Escríbenos por WhatsApp"
-            title="Escríbenos por WhatsApp"
-            onClick={() => trackEvent('whatsapp_click', { origen: 'carita' })}
-            className="absolute -right-4 -top-8"
-          >
-            <img src="/brand/carita.svg" alt="" aria-hidden="true" className="h-24 w-auto animate-wiggle" />
-          </a>
         </div>
       </div>
     </section>

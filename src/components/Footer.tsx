@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-gordo-yellow text-black">
       <Doodles className="text-black/[0.08]" />
-      <div className="relative mx-auto max-w-6xl px-4 py-14">
+      <div className="relative mx-auto max-w-6xl px-4 pb-32 pt-14 md:pb-14">
         <div className="flex flex-col items-center">
           <img src="/brand/logo-carita-horizontal-negro.svg" alt="Asado del Gordo - Sabor adictivo" className="h-24 w-auto" loading="lazy" />
           {REDES_LISTA.length > 0 && (
