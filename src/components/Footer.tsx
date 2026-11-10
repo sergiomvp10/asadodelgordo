@@ -6,6 +6,7 @@ import IconoRed, { type RedIcono } from './IconoRed'
 const REDES_TODAS: { key: RedIcono; label: string; url: string }[] = [
   { key: 'instagram', label: 'Instagram', url: REDES.instagram },
   { key: 'tiktok', label: 'TikTok', url: REDES.tiktok },
+  { key: 'facebook', label: 'Facebook', url: REDES.facebook },
   { key: 'whatsapp', label: 'WhatsApp', url: `https://wa.me/${CONTACTO.whatsapp}` },
 ]
 const REDES_LISTA = REDES_TODAS.filter((r) => r.url)
