@@ -1,4 +1,4 @@
-import { Navigation, Phone } from 'lucide-react'
+import { Phone } from 'lucide-react'
 import { SEDES } from '../data/site'
 import { pedidoClick, trackEvent } from '../analytics'
 
@@ -11,7 +11,6 @@ export default function Sedes() {
       </div>
       <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6">
         {SEDES.map((sede, i) => {
-          const [dias, horas] = sede.horario.split(' · ')
           const comoLlegar = `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
           const ultimaSola = i === SEDES.length - 1 && SEDES.length % 2 === 1
           return (
@@ -37,14 +36,10 @@ export default function Sedes() {
                   tabIndex={-1}
                   referrerPolicy="no-referrer-when-downgrade"
                 />
-                <span className="absolute left-2 top-2 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-black shadow sm:text-xs">
-                  {dias}
-                </span>
               </a>
               <div className="flex flex-1 flex-col p-3 sm:p-4">
                 <h3 className="font-display text-2xl leading-none tracking-wide text-gordo-yellow sm:text-3xl">{sede.ciudad}</h3>
                 <p className="mt-1 line-clamp-2 text-xs text-white/80 sm:text-sm">{sede.lugar}</p>
-                <p className="mt-0.5 text-xs text-white/60 sm:text-sm">{horas}</p>
                 <a
                   href={`tel:+${sede.whatsapp}`}
                   onClick={() => trackEvent('telefono_click', { sede: sede.id })}
@@ -52,7 +47,7 @@ export default function Sedes() {
                 >
                   <Phone className="h-3.5 w-3.5 text-gordo-yellow" /> {sede.telefono}
                 </a>
-                <div className="mt-3 grid gap-2 pt-1">
+                <div className="mt-auto pt-3">
                   <a
                     href={sede.pedidoUrl}
                     target="_blank"
@@ -61,15 +56,6 @@ export default function Sedes() {
                     className="btn-gordo w-full px-3 py-1.5 text-base shadow-[3px_3px_0_#000] sm:text-lg"
                   >
                     Pedir
-                  </a>
-                  <a
-                    href={comoLlegar}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackEvent('como_llegar_click', { sede: sede.id })}
-                    className="inline-flex items-center justify-center gap-1 rounded-full border border-white/30 py-1.5 font-display text-base tracking-wide text-white transition hover:bg-white hover:text-black sm:text-lg"
-                  >
-                    <Navigation className="h-3.5 w-3.5" /> Cómo llegar
                   </a>
                 </div>
               </div>
