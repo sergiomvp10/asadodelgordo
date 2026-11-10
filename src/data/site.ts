@@ -134,7 +134,7 @@ export const OPINIONES: Opinion[] = []
 export const REDES = {
   instagram: 'https://www.instagram.com/asadodelgordo',
   tiktok: 'https://www.tiktok.com/@asadodelgordo',
-  facebook: '',
+  facebook: 'https://www.facebook.com/share/19y5XgdSHz/?mibextid=wwXIfr',
 }
 
 export const CONTACTO = {
