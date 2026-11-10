@@ -114,4 +114,5 @@ export const REDES = {
 export const CONTACTO = {
   email: 'elasadodelgordo@gmail.com',
   whatsapp: '573148370588',
+  telefono: '+57 314 837 0588',
 }
