@@ -9,6 +9,7 @@ export default {
           'yellow-dark': '#e0a200',
           black: '#0b0b0b',
           ink: '#161616',
+          red: '#ff2a1f',
         },
       },
       fontFamily: {

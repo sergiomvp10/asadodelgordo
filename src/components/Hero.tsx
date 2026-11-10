@@ -21,17 +21,21 @@ export default function Hero() {
           <h1 className="mt-4 font-display sm:mt-6 text-5xl leading-[0.95] tracking-wide sm:text-6xl">
             Hamburguesas <span className="text-gordo-yellow">cargadas</span> con flow boyacense
           </h1>
-          <div className="mt-5 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-3 sm:flex-wrap md:justify-start">
+          <h2 className="mt-5 font-display text-3xl tracking-wide text-gordo-red drop-shadow-[2px_2px_0_#000] sm:mt-8 sm:text-4xl">
+            Pide en tu sede
+          </h2>
+          <div className="mx-auto mt-2 grid max-w-sm grid-cols-3 gap-2 sm:mt-3 sm:gap-3 md:mx-0">
             {SEDES.map((sede) => (
               <a
                 key={sede.id}
                 href={sede.pedidoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`Pedir en ${sede.ciudad}`}
                 onClick={() => pedidoClick(sede.id, 'portada')}
-                className="btn-gordo w-3/4 self-center px-2.5 py-[9.5px] text-lg sm:w-auto sm:self-auto"
+                className="btn-gordo px-2 py-[9.5px] text-lg"
               >
-                Pedir en {sede.ciudad}
+                {sede.ciudad}
               </a>
             ))}
           </div>
