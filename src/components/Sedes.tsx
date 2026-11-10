@@ -1,4 +1,4 @@
-import { Clock, MapPin, Navigation, Phone } from 'lucide-react'
+import { Navigation, Phone } from 'lucide-react'
 import { SEDES } from '../data/site'
 import { pedidoClick, trackEvent } from '../analytics'
 
@@ -9,59 +9,73 @@ export default function Sedes() {
         <span className="sticker">Boyacá</span>
         <h2 className="section-title mt-3">Nuestras sedes</h2>
       </div>
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
-        {SEDES.map((sede) => (
-          <article key={sede.id} className="flex flex-col overflow-hidden rounded-3xl border-2 border-white/10 bg-gordo-ink">
-            <iframe
-              title={`Mapa sede ${sede.ciudad}`}
-              src={`https://www.google.com/maps?q=${sede.lat},${sede.lng}&z=16&output=embed`}
-              className="h-48 w-full grayscale-[40%]"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            <div className="flex flex-1 flex-col p-6">
-              <h3 className="font-display text-4xl leading-none tracking-wide text-gordo-yellow">{sede.ciudad}</h3>
-              <ul className="mt-4 flex-1 space-y-3 text-sm text-white/80">
-                <li className="flex gap-3">
-                  <MapPin className="h-5 w-5 shrink-0 text-gordo-yellow" /> {sede.direccion}
-                </li>
-                <li className="flex gap-3">
-                  <Clock className="h-5 w-5 shrink-0 text-gordo-yellow" /> {sede.horario}
-                </li>
-                <li className="flex gap-3">
-                  <Phone className="h-5 w-5 shrink-0 text-gordo-yellow" />
+      <div className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+        {SEDES.map((sede, i) => {
+          const [dias, horas] = sede.horario.split(' · ')
+          const comoLlegar = `https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`
+          const ultimaSola = i === SEDES.length - 1 && SEDES.length % 2 === 1
+          return (
+            <article
+              key={sede.id}
+              className={`flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-gordo-ink shadow-[0_8px_24px_rgba(0,0,0,0.45)] ${
+                ultimaSola ? 'col-span-2 mx-auto w-[calc(50%-0.375rem)] sm:w-[calc(50%-0.625rem)] lg:col-span-1 lg:mx-0 lg:w-auto' : ''
+              }`}
+            >
+              <a
+                href={comoLlegar}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('como_llegar_click', { sede: sede.id })}
+                aria-label={`Cómo llegar a la sede ${sede.ciudad}`}
+                className="relative block aspect-square overflow-hidden sm:aspect-[4/3]"
+              >
+                <iframe
+                  title={`Mapa sede ${sede.ciudad}`}
+                  src={`https://www.google.com/maps?q=${sede.lat},${sede.lng}&z=16&output=embed`}
+                  className="pointer-events-none absolute -top-16 left-0 h-[calc(100%+4rem)] w-full grayscale-[30%]"
+                  loading="lazy"
+                  tabIndex={-1}
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <span className="absolute left-2 top-2 rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-black shadow sm:text-xs">
+                  {dias}
+                </span>
+              </a>
+              <div className="flex flex-1 flex-col p-3 sm:p-4">
+                <h3 className="font-display text-2xl leading-none tracking-wide text-gordo-yellow sm:text-3xl">{sede.ciudad}</h3>
+                <p className="mt-1 line-clamp-2 text-xs text-white/80 sm:text-sm">{sede.lugar}</p>
+                <p className="mt-0.5 text-xs text-white/60 sm:text-sm">{horas}</p>
+                <a
+                  href={`tel:+${sede.whatsapp}`}
+                  onClick={() => trackEvent('telefono_click', { sede: sede.id })}
+                  className="mt-1 inline-flex items-center gap-1 text-xs text-white/80 hover:text-gordo-yellow sm:text-sm"
+                >
+                  <Phone className="h-3.5 w-3.5 text-gordo-yellow" /> {sede.telefono}
+                </a>
+                <div className="mt-3 grid gap-2 pt-1">
                   <a
-                    href={`tel:+${sede.whatsapp}`}
-                    onClick={() => trackEvent('telefono_click', { sede: sede.id })}
-                    className="hover:text-gordo-yellow"
+                    href={sede.pedidoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => pedidoClick(sede.id, 'sedes')}
+                    className="btn-gordo w-full px-3 py-1.5 text-base shadow-[3px_3px_0_#000] sm:text-lg"
                   >
-                    {sede.telefono}
+                    Pedir
                   </a>
-                </li>
-              </ul>
-              <div className="mt-6 grid gap-3">
-                <a
-                  href={sede.pedidoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => pedidoClick(sede.id, 'sedes')}
-                  className="btn-gordo"
-                >
-                  Pedir en {sede.ciudad}
-                </a>
-                <a
-                  href={`https://www.google.com/maps/dir/?api=1&destination=${sede.lat},${sede.lng}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackEvent('como_llegar_click', { sede: sede.id })}
-                  className="btn-outline text-lg"
-                >
-                  <Navigation className="h-4 w-4" /> Cómo llegar
-                </a>
+                  <a
+                    href={comoLlegar}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackEvent('como_llegar_click', { sede: sede.id })}
+                    className="inline-flex items-center justify-center gap-1 rounded-full border border-white/30 py-1.5 font-display text-base tracking-wide text-white transition hover:bg-white hover:text-black sm:text-lg"
+                  >
+                    <Navigation className="h-3.5 w-3.5" /> Cómo llegar
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          )
+        })}
       </div>
     </section>
   )
