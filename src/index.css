@@ -5,9 +5,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
   }
   body {
     @apply bg-gordo-black font-sans text-white antialiased;
+    overflow-x: clip;
+    overscroll-behavior-x: none;
   }
   section[id] {
     scroll-margin-top: 4.5rem;
