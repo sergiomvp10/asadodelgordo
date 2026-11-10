@@ -2,6 +2,7 @@ const C = 200
 const AMARILLO = '#fcb700'
 const NARANJA = '#ff5a00'
 const NEGRO = '#0b0b0b'
+const ORO = '#ffcf33'
 
 function punto(r: number, grados: number) {
   const a = (grados * Math.PI) / 180
@@ -38,7 +39,7 @@ function Laurel({ desde, hasta }: { desde: number; hasta: number }) {
   )
 }
 
-function Estrella({ x, y, r = 9, color = AMARILLO }: { x: number; y: number; r?: number; color?: string }) {
+function Estrella({ x, y, r = 9, color = 'url(#sello-oro)' }: { x: number; y: number; r?: number; color?: string }) {
   const pts = Array.from({ length: 10 }, (_, i) => {
     const rad = ((i * 36 - 90) * Math.PI) / 180
     const rr = i % 2 === 0 ? r : r * 0.45
@@ -47,33 +48,58 @@ function Estrella({ x, y, r = 9, color = AMARILLO }: { x: number; y: number; r?:
   return <polygon points={pts} fill={color} stroke={NEGRO} strokeWidth="1.5" strokeLinejoin="round" />
 }
 
+function Trofeo() {
+  return (
+    <g strokeLinejoin="round" strokeLinecap="round">
+      <path d="M172 82 H156 Q150 82 151 92 Q154 112 176 116" fill="none" stroke={NEGRO} strokeWidth="10" />
+      <path d="M228 82 H244 Q250 82 249 92 Q246 112 224 116" fill="none" stroke={NEGRO} strokeWidth="10" />
+      <path d="M172 82 H156 Q150 82 151 92 Q154 112 176 116" fill="none" stroke="url(#sello-oro)" strokeWidth="5" />
+      <path d="M228 82 H244 Q250 82 249 92 Q246 112 224 116" fill="none" stroke="url(#sello-oro)" strokeWidth="5" />
+      <path d="M168 70 H232 V96 Q232 130 200 134 Q168 130 168 96 Z" fill="url(#sello-oro)" stroke={NEGRO} strokeWidth="4" />
+      <path d="M178 78 V98 Q178 116 190 124" fill="none" stroke="#fff" strokeWidth="4" opacity="0.7" />
+      <rect x={193} y={133} width={14} height={13} fill="url(#sello-oro)" stroke={NEGRO} strokeWidth="4" />
+      <rect x={180} y={145} width={40} height={9} rx="2" fill="url(#sello-oro)" stroke={NEGRO} strokeWidth="4" />
+      <rect x={172} y={153} width={56} height={10} rx="2" fill={NARANJA} stroke={NEGRO} strokeWidth="4" />
+      <Estrella x={200} y={101} r={12} />
+    </g>
+  )
+}
+
 export default function SelloGanador({ className = '' }: { className?: string }) {
   return (
     <svg viewBox="0 0 400 400" className={className} role="img" aria-label="Ganador Burger Master 2026">
       <defs>
-        <path id="sello-arco-sup" d={`M${C - 162} ${C} A162 162 0 0 1 ${C + 162} ${C}`} />
+        <path id="sello-arco-sup" d={`M${C - 158} ${C} A158 158 0 0 1 ${C + 158} ${C}`} />
+        <linearGradient id="sello-oro" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#fff6c2" />
+          <stop offset="35%" stopColor="#ffd23f" />
+          <stop offset="70%" stopColor="#f2a900" />
+          <stop offset="100%" stopColor="#b87800" />
+        </linearGradient>
       </defs>
 
       <circle cx={C + 8} cy={C + 8} r="190" fill={NEGRO} />
       <circle cx={C} cy={C} r="190" fill={AMARILLO} stroke={NEGRO} strokeWidth="8" />
       <circle cx={C} cy={C} r="152" fill={NEGRO} stroke={NARANJA} strokeWidth="6" />
-      <circle cx={C} cy={C} r="140" fill="none" stroke="#fff" strokeWidth="2.5" strokeDasharray="2 9" strokeLinecap="round" />
 
-      <text className="font-display" fontSize="40" letterSpacing="8" fill={NEGRO} textAnchor="middle">
+      <text className="font-display" fontSize="34" letterSpacing="9" textAnchor="middle" fill={NEGRO} stroke={NEGRO} strokeWidth="9" strokeLinejoin="round">
         <textPath href="#sello-arco-sup" startOffset="50%">GANADOR</textPath>
       </text>
-      <Estrella x={29} y={200} r={11} color={NARANJA} />
-      <Estrella x={371} y={200} r={11} color={NARANJA} />
-      <Estrella x={78} y={78} r={8} color={NEGRO} />
-      <Estrella x={322} y={78} r={8} color={NEGRO} />
-      <Estrella x={C} y={372} r={10} color={NEGRO} />
-      <Estrella x={C - 34} y={368} r={7} color={NEGRO} />
-      <Estrella x={C + 34} y={368} r={7} color={NEGRO} />
+      <text className="font-display" fontSize="34" letterSpacing="9" textAnchor="middle" fill="#fff" stroke={ORO} strokeWidth="3.5" strokeLinejoin="round" paintOrder="stroke">
+        <textPath href="#sello-arco-sup" startOffset="50%">GANADOR</textPath>
+      </text>
+      <Estrella x={29} y={200} r={11} />
+      <Estrella x={371} y={200} r={11} />
+      <Estrella x={78} y={78} r={8} />
+      <Estrella x={322} y={78} r={8} />
+      <Estrella x={C} y={372} r={10} />
+      <Estrella x={C - 34} y={368} r={7} />
+      <Estrella x={C + 34} y={368} r={7} />
 
       <Laurel desde={145} hasta={222} />
       <Laurel desde={35} hasta={-42} />
 
-      <image href="/brand/carita.svg" x={158} y={64} width={84} height={94} />
+      <Trofeo />
 
       <text
         x={C + 4}
