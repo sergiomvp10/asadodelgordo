@@ -41,15 +41,15 @@ export default function Hero() {
           <div aria-hidden="true" className="sunburst pointer-events-none absolute -inset-[35%]" />
           <div className="absolute -inset-4 rotate-3 rounded-[2rem] bg-gordo-yellow" />
           <img
-            src="/img/productos/la-bichota.webp"
-            alt="Hamburguesa La Bichota de Asado del Gordo"
-            width={533}
-            height={426}
-            className="relative -rotate-2 rounded-[2rem] border-4 border-black object-cover shadow-2xl"
+            src="/img/productos/la-awoo-del-gordo.webp"
+            alt="La Awoo del Gordo, hamburguesa ganadora del Burger Master 2026"
+            width={853}
+            height={1066}
+            className="relative aspect-[4/5] w-full -rotate-2 rounded-[2rem] border-4 border-black object-cover shadow-2xl"
           />
           <SelloGanador className="absolute -left-2 -top-5 z-10 w-[6.75rem] animate-sello drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] sm:-left-9 sm:-top-12 sm:w-36 md:w-[10.5rem]" />
-          <span className="sticker absolute -bottom-5 left-6 rotate-3 text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black">
-            Sabor adictivo
+          <span className="sticker absolute -bottom-5 left-1/2 -translate-x-1/2 rotate-2 whitespace-nowrap text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black sm:text-3xl">
+            La Awoo del Gordo
           </span>
         </div>
       </div>
