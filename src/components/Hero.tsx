@@ -29,7 +29,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => pedidoClick(sede.id, 'portada')}
-                className="btn-gordo"
+                className="btn-gordo w-3/4 self-center px-2.5 py-[9.5px] text-lg sm:w-auto sm:self-auto"
               >
                 Pedir en {sede.ciudad}
               </a>
