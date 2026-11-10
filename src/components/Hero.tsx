@@ -1,5 +1,5 @@
-import { SEDES } from '../data/site'
-import { pedidoClick } from '../analytics'
+import { CONTACTO, SEDES } from '../data/site'
+import { pedidoClick, trackEvent } from '../analytics'
 import Doodles from './Doodles'
 
 export default function Hero() {
@@ -11,17 +11,17 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_75%_40%,rgba(252,183,0,0.30),transparent_55%),radial-gradient(ellipse_at_0%_100%,rgba(252,183,0,0.14),transparent_45%)]"
       />
       <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-gordo-black" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-10 md:grid-cols-2 md:pb-24 md:pt-16">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-8 px-4 pb-16 pt-4 md:gap-10 sm:pt-10 md:grid-cols-2 md:pb-24 md:pt-16">
         <div className="text-center md:text-left">
           <img
             src="/brand/logo-completo.svg"
             alt="Asado del Gordo - Sabor adictivo"
-            className="mx-auto h-48 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] sm:h-60 md:mx-0"
+            className="mx-auto h-36 w-auto drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] sm:h-60 md:mx-0"
           />
-          <h1 className="mt-6 font-display text-5xl leading-[0.95] tracking-wide sm:text-6xl">
+          <h1 className="mt-4 font-display sm:mt-6 text-5xl leading-[0.95] tracking-wide sm:text-6xl">
             Hamburguesas <span className="text-gordo-yellow">cargadas</span> con flow boyacense
           </h1>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:justify-start">
+          <div className="mt-5 flex flex-col gap-2.5 sm:mt-8 sm:flex-row sm:gap-3 sm:flex-wrap md:justify-start">
             {SEDES.map((sede) => (
               <a
                 key={sede.id}
@@ -49,12 +49,17 @@ export default function Hero() {
           <span className="sticker absolute -bottom-5 left-6 rotate-3 text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black">
             Sabor adictivo
           </span>
-          <img
-            src="/brand/carita.svg"
-            alt=""
-            aria-hidden="true"
-            className="absolute -right-4 -top-8 h-24 w-auto animate-wiggle"
-          />
+          <a
+            href={`https://wa.me/${CONTACTO.whatsapp}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escríbenos por WhatsApp"
+            title="Escríbenos por WhatsApp"
+            onClick={() => trackEvent('whatsapp_click', { origen: 'carita' })}
+            className="absolute -right-4 -top-8"
+          >
+            <img src="/brand/carita.svg" alt="" aria-hidden="true" className="h-24 w-auto animate-wiggle" />
+          </a>
         </div>
       </div>
     </section>
