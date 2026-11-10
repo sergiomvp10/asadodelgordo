@@ -55,7 +55,7 @@ export default function Estrella({ onPedir }: { onPedir: (producto: string) => v
   return (
     <section id="estrella" className="py-16 md:py-24">
       <div className="px-4 text-center">
-        <span className="sticker">Los favoritos</span>
+        <span className="sticker animate-vibrar">Los favoritos</span>
         <h2 className="section-title mt-3">Productos estrella</h2>
       </div>
       <div

@@ -1,6 +1,7 @@
 import { SEDES } from '../data/site'
 import { pedidoClick } from '../analytics'
 import Doodles from './Doodles'
+import SelloGanador from './SelloGanador'
 
 export default function Hero() {
   return (
@@ -46,6 +47,7 @@ export default function Hero() {
             height={426}
             className="relative -rotate-2 rounded-[2rem] border-4 border-black object-cover shadow-2xl"
           />
+          <SelloGanador className="absolute -left-2 -top-6 z-10 w-36 animate-sello drop-shadow-[0_10px_18px_rgba(0,0,0,0.55)] sm:-left-12 sm:-top-16 sm:w-48 md:w-56" />
           <span className="sticker absolute -bottom-5 left-6 rotate-3 text-2xl shadow-[3px_3px_0_#000] ring-2 ring-black">
             Sabor adictivo
           </span>
