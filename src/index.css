@@ -97,7 +97,22 @@
   mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
 }
 
+.entrar {
+  animation: entrar 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes entrar {
+  from {
+    opacity: 0;
+    translate: 70px 0;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .entrar,
   .doodles-drift,
   .sunburst,
   .marquee {
